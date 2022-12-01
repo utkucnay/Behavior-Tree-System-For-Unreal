@@ -3,7 +3,7 @@
 
 #include "RepeatUntilFail.h"
 
-RepeatUntilFail::RepeatUntilFail(Node* node)
+RepeatUntilFail::RepeatUntilFail(TSharedPtr<Node> node)
 {
 	_childNode = node;
 }

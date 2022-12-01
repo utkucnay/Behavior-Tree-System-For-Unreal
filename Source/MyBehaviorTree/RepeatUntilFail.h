@@ -11,7 +11,7 @@
 class MYBEHAVIORTREE_API RepeatUntilFail : public Decorator
 {
 public:
-	RepeatUntilFail(Node* node);
+	RepeatUntilFail(TSharedPtr<Node> node);
 	~RepeatUntilFail();
 
 protected:

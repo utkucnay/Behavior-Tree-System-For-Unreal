@@ -15,7 +15,7 @@ void BTreeManager::InitTrees()
 	seq->AddNode(TimerLeaf::Init<TimerLeaf, FString>("Timer1"));
 
 	seq->AddNode(TimerLeaf::Init<TimerLeaf, FString>("Timer2"));
-	auto _root = Repeater::Init<Repeater, Node*>(seq);
+	auto _root = Repeater::Init<Repeater, TSharedPtr<Node>>(seq);
 	_trees.Add("BasicTree", _root);
 }
 

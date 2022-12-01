@@ -3,7 +3,7 @@
 
 #include "Succeeder.h"
 
-Succeeder::Succeeder(Node* node)
+Succeeder::Succeeder(TSharedPtr<Node> node)
 {
 	_childNode = node;
 }

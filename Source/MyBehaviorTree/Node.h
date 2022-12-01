@@ -19,9 +19,9 @@ public:
 public:
 	State			Execution(TMap<FString, void*>* data);
 	template<class T>
-	static	T* Init() { return new T(); }
+	static	TSharedPtr<T> Init() { return TSharedPtr<T>(new T()); }
 	template<class T, typename TField>
-	static	T* Init(TField field) { return new T(field); }
+	static 	TSharedPtr<T> Init(TField field) { return TSharedPtr<T>(new T(field)); }
 protected:
 	virtual void	Start(TMap<FString, void*>* data){};
 	virtual void	Update(TMap<FString, void*>* data)	{};

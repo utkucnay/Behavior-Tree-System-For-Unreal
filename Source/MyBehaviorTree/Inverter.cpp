@@ -3,7 +3,7 @@
 
 #include "Inverter.h"
 
-Inverter::Inverter(Node* node)
+Inverter::Inverter(TSharedPtr<Node> node)
 {
 	_childNode = node;
 }
