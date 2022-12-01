@@ -11,5 +11,5 @@
 class MYBEHAVIORTREE_API Decorator : public Node
 {
 protected:
-	Node* _childNode;
+	TSharedPtr<Node> _childNode;
 };

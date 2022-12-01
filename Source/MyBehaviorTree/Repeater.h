@@ -11,7 +11,7 @@
 class MYBEHAVIORTREE_API Repeater : public Decorator
 {
 public:
-	Repeater(Node* node);
+	Repeater(TSharedPtr<Node> node);
 	~Repeater();
 
 protected:

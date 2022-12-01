@@ -3,7 +3,7 @@
 
 #include "Repeater.h"
 
-Repeater::Repeater(Node* node)
+Repeater::Repeater(TSharedPtr<Node> node)
 {
 	_childNode = node;
 }

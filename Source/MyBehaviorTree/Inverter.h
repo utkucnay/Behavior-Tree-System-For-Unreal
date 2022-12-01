@@ -11,7 +11,7 @@
 class MYBEHAVIORTREE_API Inverter : public Decorator
 {
 public:
-					Inverter(Node* node);
+					Inverter(TSharedPtr<Node> node);
 					~Inverter();
 
 protected:

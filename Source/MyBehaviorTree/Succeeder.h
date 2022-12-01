@@ -11,7 +11,7 @@
 class MYBEHAVIORTREE_API Succeeder : public Decorator
 {
 public:
-	Succeeder(Node* node);
+	Succeeder(TSharedPtr<Node> node);
 	~Succeeder();
 
 protected:

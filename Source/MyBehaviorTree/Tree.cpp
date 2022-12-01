@@ -15,16 +15,12 @@ UTree::UTree()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	auto seq = new Sequence();
-	auto slc = new Selector();
-	seq->AddNode(new TimerLeaf(1));
+	auto seq = Sequence::Init<Sequence>();
+	auto slc = Selector::Init<Selector>();
+	seq->AddNode(TimerLeaf::Init<TimerLeaf,float>(5));
 
-	slc->AddNode(new Succeeder(new Inverter(new TimerLeaf(.5f))));
-	slc->AddNode(new TimerLeaf(1.25f));
-
-	seq->AddNode(slc);
-	seq->AddNode(new TimerLeaf(2));
-	_root = new Repeater(seq);
+	seq->AddNode(TimerLeaf::Init<TimerLeaf,float>(2));
+	_root = Repeater::Init<Repeater,TSharedPtr<Node>>(seq);
 }
 
 

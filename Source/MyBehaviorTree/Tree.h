@@ -16,7 +16,7 @@ class MYBEHAVIORTREE_API UTree : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UTree();
-	Node* _root;
+	TSharedPtr<Node> _root;
 
 protected:
 	// Called when the game starts

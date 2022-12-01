@@ -11,10 +11,10 @@
 class MYBEHAVIORTREE_API Composite : public Node
 {
 protected:
-	TArray<Node*>		_childNodes;
+	TArray<TSharedPtr<Node>>		_childNodes;
 	int					_currIndex;
 	int					_lenght		= 0;
 
 public:
-	void				AddNode(Node* node) { _childNodes.Add(node); _lenght++; };
+	void				AddNode(TSharedPtr<Node> node) { _childNodes.Add(node); _lenght++; };
 };

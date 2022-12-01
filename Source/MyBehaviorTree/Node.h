@@ -18,7 +18,10 @@ public:
 
 public:
 	State			Execution();
-
+	template<class T>
+	static	TSharedPtr<T> Init() { return TSharedPtr<T>(new T()); }
+	template<class T, typename TField>
+	static	TSharedPtr<T> Init(TField field) { return TSharedPtr<T>(new T(field)); }
 protected:
 	virtual void	Start()		{};
 	virtual void	Update()	{};
