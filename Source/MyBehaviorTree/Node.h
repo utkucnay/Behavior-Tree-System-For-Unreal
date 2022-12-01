@@ -17,14 +17,14 @@ public:
 	}				_state;
 
 public:
-	State			Execution();
+	State			Execution(TMap<FString, void*>* data);
 	template<class T>
-	static	TSharedPtr<T> Init() { return TSharedPtr<T>(new T()); }
+	static	T* Init() { return new T(); }
 	template<class T, typename TField>
-	static	TSharedPtr<T> Init(TField field) { return TSharedPtr<T>(new T(field)); }
+	static	T* Init(TField field) { return new T(field); }
 protected:
-	virtual void	Start()		{};
-	virtual void	Update()	{};
+	virtual void	Start(TMap<FString, void*>* data){};
+	virtual void	Update(TMap<FString, void*>* data)	{};
 	virtual bool	IsEnd()		{	return false;	};
 	virtual State	End()		{	return _state;	};
 };

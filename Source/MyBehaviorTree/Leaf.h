@@ -11,8 +11,8 @@
 class MYBEHAVIORTREE_API Leaf : public Node
 {
 protected:
-	virtual void	Start()		override {};
-	virtual void	Update()	override {};
+	virtual void	Start(TMap<FString, void*>* data)		override {};
+	virtual void	Update(TMap<FString, void*>* data)	override {};
 	virtual bool	IsEnd()		override { return Node::IsEnd(); };
 	virtual State	End()		override { return Node::End(); };
 };

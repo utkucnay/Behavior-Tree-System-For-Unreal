@@ -11,12 +11,12 @@
 class MYBEHAVIORTREE_API Repeater : public Decorator
 {
 public:
-	Repeater(TSharedPtr<Node> node);
+	Repeater(Node* node);
 	~Repeater();
 
 protected:
-	virtual void	Start()		override;
-	virtual void	Update()	override;
+	virtual void	Start(TMap<FString, void*>* data)		override;
+	virtual void	Update(TMap<FString, void*>* data)	override;
 	virtual bool	IsEnd()		override;
 	virtual State	End()		override;
 };

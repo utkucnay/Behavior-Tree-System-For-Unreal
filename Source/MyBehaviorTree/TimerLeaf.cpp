@@ -3,22 +3,25 @@
 #include<string>
 #include "TimerLeaf.h"
 
-TimerLeaf::TimerLeaf(float waitTime)
+TimerLeaf::TimerLeaf(FString name)
 {
-	_waitTime = waitTime;
+	_name = name;
 }
 
 TimerLeaf::~TimerLeaf()
 {
 }
 
-void TimerLeaf::Start()
+void TimerLeaf::Start(TMap<FString, void*>* data)
 {
+	auto a = data->Find(_name);
+	auto b = *a;
+	_waitTime = *((float *)b);
 	_currTime = 0;
 	UE_LOG(LogTemp, Warning, TEXT("Start TimerLeaf"));
 }
 
-void TimerLeaf::Update()
+void TimerLeaf::Update(TMap<FString, void*>* data)
 {
 	_currTime += FApp::GetDeltaTime();
 	

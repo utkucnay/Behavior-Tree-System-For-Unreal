@@ -3,16 +3,16 @@
 
 #include "Node.h"
 
-Node::State Node::Execution()
+Node::State Node::Execution(TMap<FString, void*>* data)
 {
 	if (_state != State::Running) {
-		Start();
+		Start(data);
 		_state = State::Running;
 	}
 	if (IsEnd()) {
 		_state = End();
 		return _state;
 	}
-	Update();
+	Update(data);
 	return _state;
 }

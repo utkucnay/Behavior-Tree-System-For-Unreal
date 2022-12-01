@@ -3,7 +3,7 @@
 
 #include "Succeeder.h"
 
-Succeeder::Succeeder(TSharedPtr<Node> node)
+Succeeder::Succeeder(Node* node)
 {
 	_childNode = node;
 }
@@ -12,13 +12,13 @@ Succeeder::~Succeeder()
 {
 }
 
-void Succeeder::Start()
+void Succeeder::Start(TMap<FString, void*>* data)
 {
 }
 
-void Succeeder::Update()
+void Succeeder::Update(TMap<FString, void*>* data)
 {
-	auto state = _childNode->Execution();
+	auto state = _childNode->Execution(data);
 	if (state != Node::State::Running)
 		_state = Node::State::Success;
 }

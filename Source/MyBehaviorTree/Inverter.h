@@ -11,12 +11,12 @@
 class MYBEHAVIORTREE_API Inverter : public Decorator
 {
 public:
-					Inverter(TSharedPtr<Node> node);
+					Inverter(Node* node);
 					~Inverter();
 
 protected:
-	virtual void	Start()		override;
-	virtual void	Update()	override;
+	virtual void	Start(TMap<FString, void*>* data)		override;
+	virtual void	Update(TMap<FString, void*>* data)	override;
 	virtual bool	IsEnd()		override;
 	virtual State	End()		override;
 };

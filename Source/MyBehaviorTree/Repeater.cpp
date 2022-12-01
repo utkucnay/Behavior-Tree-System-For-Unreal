@@ -3,7 +3,7 @@
 
 #include "Repeater.h"
 
-Repeater::Repeater(TSharedPtr<Node> node)
+Repeater::Repeater(Node* node)
 {
 	_childNode = node;
 }
@@ -12,14 +12,14 @@ Repeater::~Repeater()
 {
 }
 
-void Repeater::Start()
+void Repeater::Start(TMap<FString, void*>* data)
 {
 
 }
 
-void Repeater::Update()
+void Repeater::Update(TMap<FString, void*>* data)
 {
-	_childNode->Execution();
+	_childNode->Execution(data);
 }
 
 bool Repeater::IsEnd()

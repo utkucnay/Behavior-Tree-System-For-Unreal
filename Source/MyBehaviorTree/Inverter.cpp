@@ -3,7 +3,7 @@
 
 #include "Inverter.h"
 
-Inverter::Inverter(TSharedPtr<Node> node)
+Inverter::Inverter(Node* node)
 {
 	_childNode = node;
 }
@@ -12,14 +12,14 @@ Inverter::~Inverter()
 {
 }
 
-void Inverter::Start()
+void Inverter::Start(TMap<FString, void*>* data)
 {
 
 }
 
-void Inverter::Update()
+void Inverter::Update(TMap<FString, void*>* data)
 {
-	auto state = _childNode->Execution();
+	auto state = _childNode->Execution(data);
 	if (state == Node::State::Success) {
 		_state = Node::State::Failure;
 	}

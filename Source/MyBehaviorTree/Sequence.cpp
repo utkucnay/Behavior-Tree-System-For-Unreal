@@ -11,14 +11,14 @@ Sequence::~Sequence()
 {
 }
 
-void Sequence::Start()
+void Sequence::Start(TMap<FString, void*>* data)
 {
 	_currIndex = 0;
 }
 
-void Sequence::Update()
+void Sequence::Update(TMap<FString, void*>* data)
 {
-	auto state = _childNodes[_currIndex]->Execution();
+	auto state = _childNodes[_currIndex]->Execution(data);
 	if (state == Node::State::Success) {
 		_currIndex += 1;
 	}

@@ -11,14 +11,14 @@ Selector::~Selector()
 {
 }
 
-void Selector::Start()
+void Selector::Start(TMap<FString, void*>* data)
 {
 	_currIndex = 0;
 }
 
-void Selector::Update()
+void Selector::Update(TMap<FString, void*>* data)
 {
-	auto state = _childNodes[_currIndex]->Execution();
+	auto state = _childNodes[_currIndex]->Execution(data);
 	if (state == Node::State::Success) {
 		_currIndex += 2;
 	}

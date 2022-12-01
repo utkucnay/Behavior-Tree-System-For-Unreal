@@ -1,11 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "TimerLeaf.h"
-#include "Inverter.h"
-#include "Repeater.h"
-#include "Sequence.h"
-#include "Selector.h"
-#include "Succeeder.h"
+
 #include "Tree.h"
 
 // Sets default values for this component's properties
@@ -15,12 +10,11 @@ UTree::UTree()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	auto seq = Sequence::Init<Sequence>();
-	auto slc = Selector::Init<Selector>();
-	seq->AddNode(TimerLeaf::Init<TimerLeaf,float>(5));
+	_treeData.AddData("Timer1", &_timer1);
+	_treeData.AddData("Timer2", &_timer2);
 
-	seq->AddNode(TimerLeaf::Init<TimerLeaf,float>(2));
-	_root = Repeater::Init<Repeater,TSharedPtr<Node>>(seq);
+	
+
 }
 
 
@@ -29,6 +23,7 @@ void UTree::BeginPlay()
 {
 	Super::BeginPlay();
 
+	_root = BTreeManager::GetInstance()->GetTreeRootNode("BasicTree");
 }
 
 
@@ -37,8 +32,9 @@ void UTree::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentT
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	auto state = _root->Execution();
-	if (state != Node::State::Running)
+	auto state = _root->Execution(_treeData.GetData());
+	if (state != Node::State::Running) {
 		ThisTickFunction->UnRegisterTickFunction();
+	}
 }
 

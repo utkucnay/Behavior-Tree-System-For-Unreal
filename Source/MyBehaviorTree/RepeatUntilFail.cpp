@@ -3,7 +3,7 @@
 
 #include "RepeatUntilFail.h"
 
-RepeatUntilFail::RepeatUntilFail(TSharedPtr<Node> node)
+RepeatUntilFail::RepeatUntilFail(Node* node)
 {
 	_childNode = node;
 }
@@ -12,13 +12,13 @@ RepeatUntilFail::~RepeatUntilFail()
 {
 }
 
-void RepeatUntilFail::Start()
+void RepeatUntilFail::Start(TMap<FString, void*>* data)
 {
 }
 
-void RepeatUntilFail::Update()
+void RepeatUntilFail::Update(TMap<FString, void*>* data)
 {
-	auto state = _childNode->Execution();
+	auto state = _childNode->Execution(data);
 	if (state == Node::State::Failure)
 		_state = Failure;
 }

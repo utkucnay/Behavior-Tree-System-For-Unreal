@@ -4,6 +4,8 @@
 
 #include "Node.h"
 #include "CoreMinimal.h"
+#include "TreeData.h"
+#include "BTreeManager.h"
 #include "Components/ActorComponent.h"
 #include "Tree.generated.h"
 
@@ -16,7 +18,11 @@ class MYBEHAVIORTREE_API UTree : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UTree();
-	TSharedPtr<Node> _root;
+	Node* _root;
+	TreeData _treeData;
+	
+	float _timer1 = 1.4f;
+	float _timer2 = 3.4f;
 
 protected:
 	// Called when the game starts

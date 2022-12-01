@@ -14,8 +14,8 @@ public:
 					~Sequence()	;
 
 protected:
-	virtual void	Start()		;
-	virtual void	Update()	;
-	virtual bool	IsEnd()		;
-	virtual State	End()		;
+	virtual void	Start(TMap<FString, void*>* data)		override;
+	virtual void	Update(TMap<FString, void*>* data)	override;
+	virtual bool	IsEnd()		override;
+	virtual State	End()		override;
 };
