@@ -18,17 +18,17 @@
 static class MYBEHAVIORTREE_API BTreeManager
 {
 
-public:
+private:
 	TMap<FString,TSharedPtr<Node>> _trees;
 	static BTreeManager* s_instance;
 
 protected:
 	BTreeManager();
+	void InitTrees();
 public:
 	BTreeManager(BTreeManager& other) = delete;
     void operator=(const BTreeManager&) = delete;
 
-	void InitTrees();
 	TSharedPtr<Node> GetTreeRootNode(FString name) {
 		auto a = _trees.Find(name); 
 		return *a; 
